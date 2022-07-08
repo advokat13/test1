@@ -3,11 +3,7 @@
 #а значением квадрат ключа. ([{0:0}, {1:1}, {2:4}, etc…])
 
 a=list(range(0,11))
-a1=[]
-for i in a:
-	a1.append({i:i**2})
-print(a1)
-
+print([{i:i**2} for i in a])
 
 #4.2 Имеется словарь d1 = {‘a’: 1} и словарь d2 = {‘b’: 2} необходимо обновить значение ключа ‘b’ словаря ‘d2’ с 2 на 5. 
 #Вывести словарь ‘d3’, представляющий из себя содержимое словаря ‘d1’ и ‘d2’.
@@ -21,11 +17,10 @@ print(d3)
 
 #4.3 Имеется словарь d1 = {‘key1’: 1, ‘key2’: 2}, в нем необходимо сменить ключи и значения местами, заменив ‘key’ на ‘value’ ({1: ‘value1’, 2: ‘value2’})
 
-d1={'key1':1,'key2':2}
-d_new= dict((val, key) for (key, val) in d1.items())
-d_new[1]='value1'
-d_new[2]='value2'
+d1 = {'key1':1,'key2':2}
+d_new = dict((val,k.replace('key','value')) for k,val in d1.items())
 print(d_new)
+
 
 #4.4 вывести список файлов из текущей директории.
 import os
@@ -33,7 +28,7 @@ print(os.listdir())
 
 #4.5 Организовать вывод текущего времени и даты в формате “hh-mm MM-dd-YYYY”
 from datetime import datetime
-print(datetime.now().strftime('%H:%M %d-%m-%Y'))
+print(datetime.now().strftime('%H:%M %m-%d-%Y'))
 
 #4.6 Организовать последовательный вывод чисел от 0 до 10 с запросом нажатия клавиши enter пользователем для каждого последующего элемента.
 
@@ -63,11 +58,11 @@ for i in colors:
 import time
 
 
-a=0
+a = 0
 time_end = time.time() + 10
 while time.time() < time_end:
 	print(a)
-	a=a+1
+	a += 1
 
 
 #4.10 При помощи цикла for организовать консольный вывод вида:
@@ -83,8 +78,8 @@ while time.time() < time_end:
 
 	
 for i in range(1,10):
-		a=str(i)
-		print(a*i)
+    a = str(i)
+    print(a*i)
 			
 
 
